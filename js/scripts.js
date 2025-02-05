@@ -115,25 +115,23 @@ function formatDateToICS(inputDate, zona) {
   return formattedDate;
 }
 
+const formattedTituloEvento = "Boda Lucía y David";
+
 function formatGoogleCalendarLink(startDate, endDate) {
-  const tituloEvento = "Boda Lucía y David"
   const formattedStartDate = formatDateToICS(startDate);
   const formattedEndDate = formatDateToICS(endDate);
-  const formattedTituloEvento = encodeURIComponent(tituloEvento);
   $("#LinkCalendarGoogle").attr("href", `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${formattedStartDate}%2F${formattedEndDate}&text=${formattedTituloEvento}&text=${formattedTituloEvento}`);
 }
 
 function formatOutlookCalendarLink(startDate, endDate) {
   const formattedStartDate = encodeURIComponent(formatDateToISO8601(startDate));
   const formattedEndDate = encodeURIComponent(formatDateToISO8601(endDate));
-  const formattedTituloEvento = encodeURIComponent(tituloEvento);
   $("#LinkCalendarOutlook").attr("href", `https://outlook.live.com/calendar/0/action/compose?allday=false&enddt=${formattedEndDate}&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=${formattedStartDate}&subject=${formattedTituloEvento}`);
 }
 
 function formatMicrosoftOfficeCalendarLink(startDate, endDate) {
   const formattedStartDate = encodeURIComponent(formatDateToISO8601(startDate));
   const formattedEndDate = encodeURIComponent(formatDateToISO8601(endDate));
-  const formattedTituloEvento = encodeURIComponent(tituloEvento);
   $("#LinkCalendarMicrosoft365").attr(
     "href",
     `https://outlook.office.com/calendar/action/compose?allday=false&enddt=${formattedEndDate}&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=${formattedStartDate}&subject=${formattedTituloEvento}`
@@ -143,7 +141,6 @@ function formatMicrosoftOfficeCalendarLink(startDate, endDate) {
 function formatAppleCalendarLink(startDate, endDate) {
   const formattedStartDate = formatDateToICS(startDate);
   const formattedEndDate = formatDateToICS(endDate);
-  const formattedTituloEvento = encodeURIComponent(tituloEvento).replace(/%20/g, " ");
   $("#LinkCalendarApple").attr(
     "href",
     `data:text/calendar;charset=utf-8,${encodeURIComponent(`BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:Evento\nDTSTART:${formattedStartDate}\nDTEND:${formattedEndDate}\nSUMMARY:${formattedTituloEvento}\nEND:VEVENT\nEND:VCALENDAR`)}`
@@ -153,7 +150,6 @@ function formatAppleCalendarLink(startDate, endDate) {
 function formatYahooCalendarLink(startDate, endDate) {
   const formattedStartDate = formatDateToICS(startDate, true);
   const formattedEndDate = formatDateToICS(endDate, true);
-  const formattedTituloEvento = encodeURIComponent(tituloEvento);
   $("#LinkCalendarYahoo").attr("href", `https://calendar.yahoo.com/?dur=&et=${formattedEndDate}&st=${formattedStartDate}&title=${formattedTituloEvento}&v=60`);
 }
 // ----------------------
