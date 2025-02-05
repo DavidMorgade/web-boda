@@ -23,7 +23,9 @@ divDressCode.onclick = () => {
 // Cuenta Regresiva:
 
 // Set the date we're counting down to
-var countDownDate = new Date(fechaCuentaRegresiva).getTime();
+
+const fechaCuentaRegresiva = "09/27/2025 12:00:00";
+const countDownDate = new Date(fechaCuentaRegresiva).getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -87,6 +89,9 @@ var pauseAudio = () => {
 
 // Agendar en calendarios
 
+const fechaInicioEvento = "09/27/2025 12:00:00";
+const fechaFinEvento = "09/27/2025 24:00:00";
+
 var calendarioPrueba = () => {
   formatGoogleCalendarLink(fechaInicioEvento, fechaFinEvento);
   formatMicrosoftOfficeCalendarLink(fechaInicioEvento, fechaFinEvento);
@@ -111,6 +116,7 @@ function formatDateToICS(inputDate, zona) {
 }
 
 function formatGoogleCalendarLink(startDate, endDate) {
+  const tituloEvento = "Boda Lucía y David"
   const formattedStartDate = formatDateToICS(startDate);
   const formattedEndDate = formatDateToICS(endDate);
   const formattedTituloEvento = encodeURIComponent(tituloEvento);
