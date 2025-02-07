@@ -158,6 +158,7 @@ function formatYahooCalendarLink(startDate, endDate) {
 
 calendarioPrueba();
 
+
 // ----------------------
 
 // EFECTOS VISUALES POR CLASE.
@@ -191,6 +192,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var titleGalery = document.querySelector(".title-galery");
   var imagenesGaleria = document.querySelectorAll("section.galeria .item-galeria");
+
+  function scaleImagenGaleria() {
+    imagenesGaleria.forEach(div => {
+      const img = div.querySelector('img');
+      div.addEventListener('mouseover', () => {
+        img.classList.add('hover__animation');
+        img.classList.remove('nohover__animation');
+        imagenesGaleria.forEach(otherDiv => {
+          if (otherDiv !== div) {
+            const otherImg = otherDiv.querySelector('img');
+            otherImg.classList.add('nohover__animation');
+          }
+        })
+      })
+      div.addEventListener('mouseout', () => {
+        img.classList.remove('hover__animation');
+        imagenesGaleria.forEach(otherDiv => {
+          if (otherDiv !== div) {
+            const otherImg = otherDiv.querySelector('img');
+            otherImg.classList.remove('nohover__animation');
+          }
+        })
+      })
+    })
+  }
+  scaleImagenGaleria();
 
   function isInViewport(element) {
     var rect = element.getBoundingClientRect();
