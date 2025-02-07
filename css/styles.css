@@ -3,11 +3,13 @@
 :root {
   --color-primario: #6B7952;
   --color-secundario: #D5C7AA;
+  --color-fondo: #F6EDDA;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
+  background-color: var(--color-fondo);
 }
 
 p {

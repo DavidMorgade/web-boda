@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var titleGalery = document.querySelector(".title-galery");
   var imagenesGaleria = document.querySelectorAll("section.galeria .item-galeria");
 
+  // funcion agregada para el efecto hover de la galeria de imagenes, asi el resto de imagenes se hacen mas pequeñas cuando una se hace grande
   function scaleImagenGaleria() {
     imagenesGaleria.forEach(div => {
       const img = div.querySelector('img');
