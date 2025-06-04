@@ -18,6 +18,29 @@ p {
   font-size: 17px;
 }
 
+    .galeria-img-wrapper {
+      width: 100%;
+      aspect-ratio: 1/1; /* Cuadrado */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .galeria-img-wrapper img {
+      width: 95%;
+      height: 95%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .galeria-img-wrapper img:hover {
+      transform: scale(1.05);
+    }
+
+    .item-galeria {
+      margin-bottom: 1.5rem;
+    }
+
 .fuente-portada {
   font-family: 'Ovo', sans-serif;
   text-transform: uppercase;
